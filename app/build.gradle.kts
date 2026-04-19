@@ -46,6 +46,9 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    // ktx拡張 viewModelScope
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.10.0")
+
     val room_version = "2.8.4"
 
     implementation("androidx.room:room-runtime:$room_version")
