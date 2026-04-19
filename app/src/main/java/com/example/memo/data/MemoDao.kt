@@ -14,7 +14,7 @@ interface MemoDao {
     suspend fun insert(memo: MemoEntity)
 
     @Query("SELECT * FROM MemoEntity")
-    suspend fun getAll(): Flow<List<MemoEntity>>
+    fun getAll(): Flow<List<MemoEntity>>
 
     @Update
     suspend fun update(memo: MemoEntity)
