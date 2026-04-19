@@ -16,9 +16,12 @@ interface MemoDao {
     @Query("SELECT * FROM MemoEntity")
     fun getAll(): Flow<List<MemoEntity>>
 
+    @Query("SELECT * FROM MemoEntity WHERE id = :id")
+    suspend fun getMemo(id: Int): MemoEntity
+
     @Update
     suspend fun update(memo: MemoEntity)
 
-    @Delete
-    suspend fun delete(memo: MemoEntity)
+    @Query("DELETE FROM MemoEntity WHERE id = :id")
+    suspend fun delete(id: Int)
 }

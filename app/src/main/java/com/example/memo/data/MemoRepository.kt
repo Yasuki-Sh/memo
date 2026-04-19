@@ -8,10 +8,14 @@ class MemoRepository(private val memoDao: MemoDao) {
     suspend fun insertMemo(memo: MemoEntity){
         memoDao.insert(memo)
     }
+
+    suspend fun getMemo(id: Int): MemoEntity{
+        return memoDao.getMemo(id = id)
+    }
     suspend fun updateMemo(memo: MemoEntity){
         memoDao.update(memo)
     }
-    suspend fun deleteMemo(memo: MemoEntity){
-        memoDao.delete(memo)
+    suspend fun deleteMemo(id: Int){
+        memoDao.delete(id = id)
     }
 }

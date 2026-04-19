@@ -17,14 +17,19 @@ class MemoViewModel(
             repository.insertMemo(memoEntity)
         }
     }
+    fun getMemo(id: Int) {
+        viewModelScope.launch {
+            repository.getMemo(id)
+        }
+    }
     fun updateMemo(memo: MemoEntity) {
         viewModelScope.launch {
             repository.updateMemo(memo)
         }
     }
-    fun deleteMemo(memo: MemoEntity) {
+    fun deleteMemo(id: Int) {
         viewModelScope.launch {
-            repository.deleteMemo(memo)
+            repository.deleteMemo(id)
         }
     }
 }
