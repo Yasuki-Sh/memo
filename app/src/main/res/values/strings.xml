@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">memo</string>
+    <string name="addMemoButton">メモを追加</string>
+    <string name="memo">メモ</string>
 </resources>
