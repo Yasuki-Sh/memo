@@ -1,5 +1,6 @@
 package com.example.memo.ui
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.memo.R
 import com.example.memo.domain.MemoEntity
 
-class MemoAdapter : RecyclerView.Adapter<MemoAdapter.MemoViewHolder>() {
+class MemoAdapter(
+    private val onMemoClick: (MemoEntity) -> Unit
+) : RecyclerView.Adapter<MemoAdapter.MemoViewHolder>() {
 
     private var memos = listOf<MemoEntity>()
 
@@ -23,11 +26,16 @@ class MemoAdapter : RecyclerView.Adapter<MemoAdapter.MemoViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MemoViewHolder, position: Int) {
-        holder.memoText.text = memos[position].memo
+        val memo = memos[position]
+        holder.memoText.text = memo.memo
+        holder.itemView.setOnClickListener{
+            onMemoClick(memo)
+        }
     }
 
     override fun getItemCount(): Int = memos.size
 
+    @SuppressLint("NotifyDataSetChanged")
     fun updateMemos(newMemos: List<MemoEntity>) {
         memos = newMemos
         notifyDataSetChanged()
