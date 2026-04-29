@@ -12,10 +12,28 @@
         android:hint="@string/editMemo"
         android:inputType="textMultiLine" />
 
-    <Button
-        android:id="@+id/saveMemoButton"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/save" />
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/saveMemoButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/save" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/deleteMemoButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/red"
+            android:text="@string/delete" />
+
+    </LinearLayout>
 
 </LinearLayout>

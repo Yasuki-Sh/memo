@@ -16,6 +16,7 @@ class EditMemoActivity : AppCompatActivity() {
 
         val editText = findViewById<EditText>(R.id.editMemoInput)
         val saveButton = findViewById<Button>(R.id.saveMemoButton)
+        val deleteButton = findViewById<Button>(R.id.deleteMemoButton)
 
         editText.setText(memoText)
 
@@ -29,6 +30,14 @@ class EditMemoActivity : AppCompatActivity() {
                 setResult(RESULT_OK, resultIntent)
                 finish()
             }
+        }
+
+        deleteButton.setOnClickListener {
+            val resultIntent = Intent().apply {
+                putExtra("memo_id", memoId)
+            }
+            setResult(RESULT_CANCELED, resultIntent)
+            finish()
         }
     }
 }

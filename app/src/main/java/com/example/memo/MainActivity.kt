@@ -33,6 +33,11 @@ class MainActivity : AppCompatActivity() {
             if (memoId != -1 && updatedText.isNotBlank()) {
                 viewModel.updateMemo(MemoEntity(id = memoId, memo = updatedText))
             }
+        } else if (result.resultCode == RESULT_CANCELED) {
+            val memoId = result.data?.getIntExtra("memo_id", -1) ?: -1
+            if (memoId != -1) {
+                viewModel.deleteMemo(memoId)
+            }
         }
     }
 
@@ -52,7 +57,7 @@ class MainActivity : AppCompatActivity() {
         val memoInput = findViewById<EditText>(R.id.memoInput)
         val addButton = findViewById<Button>(R.id.addMemoButton)
         val memoList = findViewById<RecyclerView>(R.id.memoList)
-        
+
         viewModel = ViewModelProvider(this, factory)[MemoViewModel::class.java]
 
         addButton.setOnClickListener {
