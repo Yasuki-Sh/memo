@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">memo</string>
+    <string name="addMemoButton">メモを追加</string>
+    <string name="memo">メモ</string>
+    <string name="save">保存</string>
+    <string name="editMemo">メモを編集</string>
+    <string name="delete">削除</string>
+</resources>
